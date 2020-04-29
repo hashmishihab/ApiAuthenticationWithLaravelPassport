@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Response;
 
 class AuthController extends Controller
 {
@@ -20,9 +21,8 @@ class AuthController extends Controller
 
         $user = User::create($validatedData);
 
-        $accessToken = $user->createToken('authToken')->accessToken;
 
-        return response(['user'=> $user, 'access_token'=> $accessToken]);
+        return response(['user'=> $user]);
 
     }
 
@@ -38,9 +38,25 @@ class AuthController extends Controller
             return response(['message'=>'Invalid credentials']);
         }
 
+        //for generating tokens
         $accessToken = auth()->user()->createToken('authToken')->accessToken;
+
+        $userInfo= $request->user();
+
+//        dd($userInfo,$accessToken);
+        //updating token fields of respective user
+        $data = User::find($userInfo->id);
+        $data->token = 'Bearer '.$accessToken;
+
+        $data->save();
 
         return response(['user' => auth()->user(), 'access_token' => $accessToken]);
 
+    }
+
+    public function index()
+    {
+        $data = User::all();
+        return Response::json($data);
     }
 }

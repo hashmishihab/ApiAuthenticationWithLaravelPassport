@@ -9,7 +9,38 @@
 			"name": "http://localhost:8000/api/register",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Ziadul",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ziadul@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
 					"raw": "http://localhost:8000/api/register",
 					"protocol": "http",
@@ -34,6 +65,12 @@
 						"key": "Accept",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "APP_KEY",
+						"value": "BalSal",
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"body": {
@@ -41,13 +78,13 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "hashmi",
+							"value": "tanvir",
 							"type": "text",
 							"disabled": true
 						},
 						{
 							"key": "email",
-							"value": "hashmi@gmail.com",
+							"value": "tan@gmail.com",
 							"type": "text"
 						},
 						{
@@ -73,6 +110,74 @@
 					"path": [
 						"api",
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTVhZDVhMTQ0MTM5YjUWM4OTYxNTM1ZDcxMjI2OGRmZDEyZDEwZWE3Y2VkMGE0N2ViMzI3YmI3MGZlY2YyYTFiNGQ3YjFmYTFhMGNlMDgiLCJpYXQiOjE1ODgxODkzMDIsIm5iZiI6MTU4ODE4OTMwMiwiZXhwIjoxNjE5NzI1MzAyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.tVPt3DnO7i7d4qjc_5jKYiHqnDe_e5sofnWm5z0T47zDNM9gpRYHmNKoIKr-6HF6oBaYldZO3NNe-vMsATmua9qqv-55pZWyJbsL10QFrkbE6A0JKxT3-3HG5xpUuzBRciO70OjaIlZILH3ugDq6603OA2UrwfkNVwRxApqv6vISVZQabREjiC1vLEyYE5SGuW86nnWmDkwfG-XvxY0UldGUAkY_r1MSZGOnyXCGR9blVdQJYcAPOYZVmPgxJ5xi7Fr4hqC_fn0Xc2sMJrrLa0waVbZeM1c8UwfhtDeVLEol4EcksfsPsgETHoWoKktyJFUYtlRhYFUKt1srp-ivc3f7S3zCmX1trEtUtZfeybUI9tPl8ob2Et_t1HVfPdl6HcIw_DtP155DJK96dSuJz_Dph7Vbanu194IkV54yw-s0TPC-uihXoCIV_Y1AFL8yGg4Ezgjt2u5lVrTjBth2dwb4UX2nqQD8wraKLufkHNPD32qpiuditmNzV_Yw9jK-41ZbEh7EosE9AE2Xr1eW9OzubIcETxWNUI8XFAbZulXjuz6NKmKq8OREO31-TS7Znk-tK-6F8o_DE8ndz5FAy9hDwKkuYu9Vya8o_IeRrKOyM7oCA2dUIpc20ZuZdQWKoC803L5SFeotZRfdHZMtwozNDhmqOHmjE_qzTpSTRYE",
+						"type": "text"
+					},
+					{
+						"key": "user_id",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "tanvir",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "tan@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password_confirmation",
+							"value": "secret",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users"
 					]
 				}
 			},
